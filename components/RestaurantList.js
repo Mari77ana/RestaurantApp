@@ -9,6 +9,7 @@ const RestaurantList = ({ item }) => {
         <Text style={styles.name}>{item.name}</Text>
         <Image style={styles.imageStyle} source={{ url: item.image_url }} />
         <Text style={styles.text}>{item.location.address1}</Text>
+        <Text style={styles.text}>phoneNr: {item.phone}</Text>
         <Text style={styles.text}>Stars: {item.rating}</Text>
         <Text style={styles.text}>Price:{item.price}</Text>
       </View>
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgrey",
     marginTop: 40,
     width: 400,
-    height: 270,
+    height: 300,
     //alignContent: "center",
     //alignItems: "center",
     borderBottomColor: "black",
@@ -48,6 +49,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 17,
+    top: 7,
   },
 });
 
