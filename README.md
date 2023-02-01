@@ -24,6 +24,15 @@ Här finns Stack Navigation med dess installationer, komponenten LogIn,  kompone
 SearchScreen.js (pappan)
 Här finns: SearchBar, RestaurantList
 
+SearchScreen består av Fetching och FlatList. 
+Skickar ner props till barnet SearchBar
+Funktionen submitSearch körs när man trycker på sökikonen från SearchBar.
+SearchBar innehåller search ikonen och TextInput där man söker restauranger.
+
+FlatList får in en array med alla olika restuaranger och skapar en RestaurantList komponent för att visa namn, bild etc
+
+
+
 Komponenten LogIn.js  Är en start sida. Här skickas en props navigation argument. 
 Det finns en funktion handleLogin() som kontrollerar villkoret om användarens inloggning, (namn och lösenord.) 
 Lösenordet är skyddat när man knappar in det.
@@ -35,5 +44,10 @@ Login knappen blir synlig och funktionell när inloggningen blir korrekt och den
 RestaurantList.js (Barnet) 
 
 Komponenten RestaurantList består av restaurang bilder, namn, telefon nr, priskategori och ratings. Vi kommer åt dom genom att skicka props item från Flatlist som ligger i SearchScreen (pappan )använder props item för att hämta restaurang från FlatList 
+
+
+Styling: 
+Har jag valt med sobra färger, stilren genom hela appen. No match text avviker i färg för att utmärka sig. 
+Input fälten har raka linjer, log in knappen har markerade runda hörn. Bilder har svaga rundade hörn för att få en mjukhet mot det raka input fälten.
 
 
