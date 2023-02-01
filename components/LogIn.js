@@ -8,25 +8,25 @@ import {
   Image,
 } from "react-native";
 
-// Komponenten LogIn
+// Komponenten LogIn med props navigation
 const LogIn = ({ navigation }) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  // funktionen handlelogin,
+  // funktionen handlelogin tar dig till nästa sida om inloggningen stämmer
   const handleLogin = () => {
-    if (userName == "mariana" && password == "kalle") {
+    if (userName == "mariana" && password == "mums") {
       setUserName("");
       setPassword("");
-      navigation.navigate("Restaurant Search");
+      navigation.navigate("Restaurant Search"); // använder props navigation för att komma dit
     } else {
       Alert.alert("Error", "Wrong Password or User Name", [{ text: "OK" }]);
     }
   };
 
   return (
-    <View style={{ alignItems: "center" }}>
+    <View style={styles.centerItems}>
       <Image
-        source={require("../assets/9fde2995246431.5e93304946754.jpg")}
+        source={require("../assets/9fde2995246431.5e93304946754.jpg")} // profilbild
         style={styles.image}
       />
       <TextInput
@@ -34,7 +34,7 @@ const LogIn = ({ navigation }) => {
         placeholder="Username"
         value={userName}
         onChangeText={setUserName}
-        autoCapitalize={false}
+        autoCapitalize={false} // Spelar ingen roll om det börjar med stor el liten bokstav
       />
       <TextInput
         style={styles.placeHolder}
@@ -42,16 +42,15 @@ const LogIn = ({ navigation }) => {
         value={password}
         onChangeText={setPassword}
         autoCapitalize={false}
-        secureTextEntry={true}
+        secureTextEntry={true} // displayar ej lösenordet
       />
-      {/* if({password.length >= 4 && password.length <= 6}){}
-      else{} */}
+
       <View style={styles.button}>
         <Button
           title="Log In"
-          onPress={handleLogin}
-          color="black"
-          disabled={!userName || !password}
+          onPress={handleLogin} // funktionen handleLogin för dig till SearchScreen när knappen blir tryckt
+          //color="dodgerblue"
+          disabled={!userName || !password} // Knappen blir synlig när användar fälten är ifyllt.
           ß
         />
       </View>
@@ -60,19 +59,23 @@ const LogIn = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  centerItems: {
+    alignItems: "center",
+  },
   image: {
     height: 450,
     width: 300,
 
     marginTop: 20,
-    borderRadius: 3,
+    borderRadius: 7,
   },
   placeHolder: {
     height: 40,
     width: 300,
-    color: "black",
+    backgroundColor: "",
     margin: 15,
     borderWidth: 1,
+    borderColor: "black",
     padding: 10,
     top: 18,
     fontSize: 18,
@@ -80,7 +83,9 @@ const styles = StyleSheet.create({
   button: {
     width: 300,
     height: 40,
-    borderWidth: 2,
+    backgroundColor: "",
+    borderWidth: 1,
+    borderColor: "black",
     margin: 15,
     borderRadius: 40,
     top: 10,

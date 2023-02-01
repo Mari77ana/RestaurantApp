@@ -1,15 +1,16 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 
-// komponenten visar de sökta restauranger, props item kommer fr Flatlist
+//props item som skickas som argument för att hämta restaurang info som sedan skrivs ut
+// i Flatlist som Pappan - SearchScreen har
 const RestaurantList = ({ item }) => {
   return (
     <View style={styles.background}>
       <View style={styles.items}>
         <Text style={styles.name}>{item.name}</Text>
         <Image style={styles.imageStyle} source={{ url: item.image_url }} />
-        <Text style={styles.text}>{item.location.address1}</Text>
-        <Text style={styles.text}>phoneNr: {item.phone}</Text>
+        <Text style={styles.text}>Adress: {item.location.address1}</Text>
+        <Text style={styles.text}>Phone: {item.phone}</Text>
         <Text style={styles.text}>Stars: {item.rating}</Text>
         <Text style={styles.text}>Price:{item.price}</Text>
       </View>
@@ -19,12 +20,11 @@ const RestaurantList = ({ item }) => {
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: "lightgrey",
+    backgroundColor: "",
+    //
     marginTop: 40,
     width: 400,
     height: 300,
-    //alignContent: "center",
-    //alignItems: "center",
     borderBottomColor: "black",
     borderTopWidth: 1,
     borderBottomWidth: 1,
@@ -46,10 +46,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     top: 7,
     fontStyle: "italic",
+    color: "black",
+    // #009900
   },
   text: {
     fontSize: 17,
     top: 7,
+    color: "black",
   },
 });
 

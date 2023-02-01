@@ -1,9 +1,8 @@
 import { StyleSheet } from "react-native";
-import LogIn from "./components/LogIn";
-
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import SearchScreen from "./components/SearchScreen";
+import LogIn from "./components/LogIn";
 
 const Stack = createStackNavigator();
 
@@ -15,7 +14,8 @@ export default function App() {
         <Stack.Screen
           name="Restaurant Search"
           component={SearchScreen}
-          options={{ title: "Restaurant Search", headerShown: false }}
+          options={{ title: "Restaurant Search", headerShown: false }} // med denna option kan man inte
+          // navigera tillbaka till login sidan
         />
       </Stack.Navigator>
     </NavigationContainer>

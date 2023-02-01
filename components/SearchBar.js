@@ -4,28 +4,28 @@ import {
   View,
   Image,
   TextInput,
-  Text,
   TouchableOpacity,
 } from "react-native";
 
-const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
+//Komponenten SearchBar tar emot props  fr pappan,
+const SearchBar = ({ search, changeSearch, submitSearch }) => {
+  //funktionen getRestaurant har värdet på sökningen och rensar den
   const getRestaurant = () => {
-    onTermSubmit(term);
-    onTermChange(""); // ta bort gamla texten i placeholdern
+    submitSearch(search); // Det värde som användaren skrivit
+    changeSearch(""); // tar bort gamla texten i placeholdern med att tilldela den en tom sträng
   };
   return (
     <View style={styles.container}>
-      <TouchableOpacity disabled={!term} onPress={getRestaurant}>
+      {/* När knappen blir tryckt körs getrestaurant funktionen (datan skickas till pappan för att hämta Api)  */}
+      <TouchableOpacity disabled={!search} onPress={getRestaurant}>
         <Image style={styles.icon} source={require("../assets/search.png")} />
       </TouchableOpacity>
 
       <TextInput
         style={styles.placeHolder}
         placeholder="Search Restaurant"
-        color="black"
-        value={term} // inputen uppdateras
-        onChangeText={onTermChange} // användarens input sparas i variabeln onTermChange
-        //onEndEditing={onTermSubmit} //Callback that is called when text input ends in  variable onTermSubmit
+        value={search} // inputen uppdateras
+        onChangeText={changeSearch} // användarens input sparas i variabeln onTermChange
         autoCapitalize={false} // tar bort stor bokstav
       />
     </View>
@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
 
     flexDirection: "row",
-    // borderWidth: 1,
-    // color: "black",
+    borderWidth: 0.2,
+    color: "black",
   },
   icon: {
     height: 40,
