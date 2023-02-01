@@ -5,11 +5,15 @@ Första sidan möts man med en bild och inloggning som tar emot ett användarnam
 När du loggar in navigerar den till sök sidan. Där kan du söka olika restauranger, den kan också 
 föreslå en restaurang om du söker på en maträtt så som pasta, kebab, pizza. 
 Finns din restaurang så visas den annars no match. 
-API:et har en bred kapacitet, du kan även söka på ett ord så föreslår den restauranger åt dig.  
+API:et har en bred kapacitet, du kan även söka på ett ord så föreslår den restauranger åt dig.
+
+För att kunna använda den här appen bör man skapa ett konto på yelp för att få API nyckeln för att kunna göra lyckade anrop.
+Därefter får man skapa en JS fil utilites.js där man exporterar en variabel som SearchSreen implementerar och lägger in nyckeln i headern 
+för fetch mot självaste yelp
 
 Mina Komponenter: 
 Det finns 4:a komponenter i paketet components.
-LogIn (barn)
+LogIn
 SearchScreen (pappa)
 SearchBar (barn)
 RestaurantList (barn)
