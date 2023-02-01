@@ -1,4 +1,7 @@
 # RestaurantApp
+
+börja med att stå i projektet i terminalen och skriv npm install för att installera alla dependencies
+
 Min allra första app som handlar om att man kan söka på restauranger
 Jag utgår från att man är redan  en registrerad användare.
 Första sidan möts man med en bild och inloggning som tar emot ett användarnamn och ett lösenord. 
